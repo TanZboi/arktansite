@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/obj/Debug/net8.0/compressed/0g4yvyjlvh.gz",
+      "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/obj/Debug/net8.0/scopedcss/bundle/Arktan.xyz.styles.css",
+      "PackagePath": "staticwebassets/Arktan.xyz.styles.css"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/css/app.css",
+      "PackagePath": "staticwebassets/css/app.css"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/css/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/icon-192.png",
+      "PackagePath": "staticwebassets/icon-192.png"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/sample-data/weather.json",
+      "PackagePath": "staticwebassets/sample-data/weather.json"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Arktan.xyz.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.Arktan.xyz.props",
+      "PackagePath": "build\\Arktan.xyz.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Arktan.xyz.props",
+      "PackagePath": "buildMultiTargeting\\Arktan.xyz.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Arktan.xyz.props",
+      "PackagePath": "buildTransitive\\Arktan.xyz.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
