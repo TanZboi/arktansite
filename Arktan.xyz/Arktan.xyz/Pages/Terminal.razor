@@ -16,6 +16,11 @@
 </div>
 
 @code {
+    private bool isTyping = false;
+    private string typingBuffer = "";
+    private int typingIndex = 0;
+    private string lastCommand = "";
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -43,23 +48,87 @@
         await JSRuntime.InvokeVoidAsync("scrollToBottom", outputDiv); // Scroll to the bottom of the output
     }
 
-    private void ProcessCommand(string command)
+    private async Task ProcessCommand(string command)
     {
-        // Add the command itself
-        outputLines.Insert(0, "$ " + command);
-        
-        string response; // The response to the command
-        if (command == "art")
-            response = "Displaying artwork...";
-        else if (command == "music")
-            response = "Opening music links...";
-        else
-            response = "Unknown command. Try 'art' or 'music'.";
-        
-        outputLines.Insert(1, response); // Add the response to the output
+        if (isTyping) return;
 
-        ScrollToBottom(); // Scroll to the bottom of the output
+        lastCommand = "$ " + command;
+        outputLines.Add(lastCommand);
+        StateHasChanged();
+
+        // 🟢 Try-catch in case JSInterop fails
+        try 
+        {
+            await JSRuntime.InvokeVoidAsync("triggerPulse");
+        }
+        catch (Exception ex)
+        {
+            outputLines.Add("[Error triggering shader pulse: " + ex.Message + "]");
+        }
+
+        isTyping = true;
+        List<string> responseLines = GetResponse(command);
+
+        foreach (var line in responseLines)
+        {
+            typingBuffer = line;
+            typingIndex = 0;
+
+            outputLines.Add(""); 
+            int currentIndex = outputLines.Count - 1;
+
+            await TypeOutText(currentIndex);
+        }
+
+        isTyping = false;
+    }
+
+
+
+    private async Task TypeOutText(int index)
+    {
+        string currentText = "";
+        while (typingIndex < typingBuffer.Length)
+        {
+            currentText += typingBuffer[typingIndex]; // Add next letter
+            outputLines[index] = currentText; // Update the correct line in outputLines
+            StateHasChanged();
+
+            await Task.Delay(15); // Adjust speed here (50ms per letter)
+            typingIndex++;
+        }
     }
 
     
+    private List<string> GetResponse(string command)
+    {
+        return command switch
+        {
+            "contact" => new List<string>
+            {
+                "Email: bill@arktan.xyz",
+                "Discord: Arktanz",
+                "bluesky: @natkraart.bsky.social",
+                "deviantart: @natkra",
+                "Fa: natkra",
+                "reddit: u/thatmako",
+                "youtube: Arktan",
+                "soundcloud: Arktan",
+                "github: TanZboi",
+                "website: arktan.xyz"
+            },
+            "help" => new List<string>
+            {
+                "Available commands:",
+                "contact - Show contact information",
+                "art - view art",
+                "music - redirect to my music",
+                "about - Show information about me",
+                "clear - Clear the terminal",
+                "background - Change the background shader",
+                "help - Show available commands"
+            },
+            _ => new List<string> { "Unknown command. Try 'help'." },
+        };
+    }
 }

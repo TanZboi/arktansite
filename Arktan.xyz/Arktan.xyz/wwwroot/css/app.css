@@ -33,8 +33,8 @@ body {
 .output {
     min-height: 50vh;
     overflow-y: auto;
-    font-size: 1.2rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1;
 }
 
 /* Input line */
@@ -81,5 +81,5 @@ canvas#shaderCanvas {
 
 .terminal, .output, .prompt, .input {
     color: #ffffff !important;
-    font-size: 1.5rem !important;  /* Make text larger */
+    font-size: 1rem !important;  /* Make text larger */
 }

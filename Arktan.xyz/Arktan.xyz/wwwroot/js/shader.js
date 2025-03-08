@@ -23,12 +23,12 @@ const vertexShaderSource = `
     }
 `;
 
-
 const fragmentShaderSource = `
     precision mediump float;
     
     uniform vec2 resolution;
     uniform float time;
+    uniform float u_pulse; // New uniform for pulsing effect
     
     void main() {
         vec2 fragCoord = gl_FragCoord.xy;
@@ -46,10 +46,13 @@ const fragmentShaderSource = `
             uv += p / l * (sin(z) + 1.0) * abs(sin(l * 9.0 - z - z));
             c[i] = 0.01 / length(mod(uv, 1.0) - 0.5);
         }
-    
-        gl_FragColor = vec4(c / l, 1.0);
+
+        // Pulse effect: brightness increases briefly
+        float pulseEffect = 1.0 + u_pulse * 1.5; // Make the pulse effect stronger
+        gl_FragColor = vec4(c / l * pulseEffect, 1.0);
     }
 `;
+
 
 function compileShader(source, type) { // type: gl.VERTEX_SHADER or gl.FRAGMENT_SHADER
     const shader = gl.createShader(type);
@@ -91,13 +94,31 @@ gl.enableVertexAttribArray(positionLocation);
 gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0); // Set the vertex attributes
 
 
+let pulseValue = 0.0;
+let lastPulseTime = 0;
+
+function triggerPulse() {
+    pulseValue = 10.0; // Start pulse effect
+    lastPulseTime = performance.now();
+}
+
+function updatePulse() {
+    let elapsed = (performance.now() - lastPulseTime) / 1000.0;
+    pulseValue = Math.max(0.0, pulseValue - elapsed * 0.02); // Decay effect
+}
+
 function render(time) {
+    updatePulse();
+
     gl.uniform1f(gl.getUniformLocation(shaderProgram, "time"), time * 0.001);
-    gl.uniform2f(gl.getUniformLocation(shaderProgram, "resolution"), canvas.width, canvas.height); // Set the resolution uniform
+    gl.uniform2f(gl.getUniformLocation(shaderProgram, "resolution"), canvas.width, canvas.height);
+    gl.uniform1f(gl.getUniformLocation(shaderProgram, "u_pulse"), pulseValue); // Update shader pulse
+
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     requestAnimationFrame(render);
 }
+
 requestAnimationFrame(render); // Start the render loop
 
 window.initShader = function() { // Called from Blazor
