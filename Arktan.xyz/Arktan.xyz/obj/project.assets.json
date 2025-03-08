@@ -1878,11 +1878,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Arktan.xyz.csproj",
+      "projectUniqueName": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Arktan.xyz.csproj",
       "projectName": "Arktan.xyz",
-      "projectPath": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Arktan.xyz.csproj",
+      "projectPath": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Arktan.xyz.csproj",
       "packagesPath": "/Users/bill/.nuget/packages/",
-      "outputPath": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/obj/",
+      "outputPath": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/bill/.nuget/NuGet/NuGet.Config"
@@ -1891,6 +1891,7 @@
         "net8.0"
       ],
       "sources": {
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1953,7 +1954,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/Users/bill/.dotnet/sdk/8.0.406/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.406/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

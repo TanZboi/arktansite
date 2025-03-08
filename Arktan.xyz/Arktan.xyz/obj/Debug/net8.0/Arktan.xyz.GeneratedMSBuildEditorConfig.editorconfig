@@ -22,30 +22,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/App.razor]
+[/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+[/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Pages/Terminal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVybWluYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXMvV2VhdGhlci5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/_Imports.razor]
+[/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Layout/MainLayout.razor]
+[/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xa0uko7fif
-
-[/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-vs795e5ghx
