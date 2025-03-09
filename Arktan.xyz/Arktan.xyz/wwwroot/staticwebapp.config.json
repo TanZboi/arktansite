@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "route": "/art",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/{*path}",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ]
+}
