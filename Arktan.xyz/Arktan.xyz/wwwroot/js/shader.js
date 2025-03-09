@@ -98,7 +98,7 @@ let pulseValue = 0.0;
 let lastPulseTime = 0;
 
 function triggerPulse() {
-    pulseValue = 10.0; // Start pulse effect
+    pulseValue = 20.0; // Start pulse effect
     lastPulseTime = performance.now();
 }
 

@@ -1,0 +1,31 @@
+@page "/art"
+@inject IJSRuntime JSRuntime
+
+
+
+<div class="art-page">
+    
+    <h1>My Artwork</h1>
+
+    <div class="art-gallery">
+        @foreach (var image in imageFiles)
+        {
+            <img src="@image" alt="Artwork" class="art-image"/>
+        }
+    </div>
+
+    <p>Want to see more? Check out my full gallery on my social media. (run command 'contact')</p>
+
+    <p class="back-message" onclick="history.back()">⬅ Press Backspace or Click Here to Go Back</p>
+</div>
+
+@code {
+    private List<string> imageFiles = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("🟡 Fetching images...");
+        imageFiles = await JSRuntime.InvokeAsync<List<string>>("getImageFiles");
+        Console.WriteLine($"🟢 Loaded {imageFiles.Count} images.");
+    }
+}

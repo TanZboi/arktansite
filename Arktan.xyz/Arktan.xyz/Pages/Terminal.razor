@@ -1,8 +1,9 @@
 @page "/"
 @inject IJSRuntime JSRuntime
+
 <div class="terminal">
-    <div class="output">
-        @foreach (var line in outputLines.AsEnumerable())
+    <div class="output" id="terminal-output">
+        @foreach (var line in outputLines)
         {
             <p>@line</p>
         }
@@ -15,19 +16,13 @@
     </div>
 </div>
 
+
 @code {
     private bool isTyping = false;
     private string typingBuffer = "";
     private int typingIndex = 0;
     private string lastCommand = "";
     
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            await JSRuntime.InvokeVoidAsync("initShader");
-        }
-    }
     
     private List<string> outputLines = new();
     private string currentInput = "";
@@ -55,16 +50,24 @@
         lastCommand = "$ " + command;
         outputLines.Add(lastCommand);
         StateHasChanged();
-
-        // 🟢 Try-catch in case JSInterop fails
-        try 
+        
+        if (command == "clear")
         {
+            outputLines.Clear(); // Completely wipe terminal output
+            StateHasChanged();
             await JSRuntime.InvokeVoidAsync("triggerPulse");
+            return; // Exit early to prevent processing further
         }
-        catch (Exception ex)
+        
+        if (command == "art")
         {
-            outputLines.Add("[Error triggering shader pulse: " + ex.Message + "]");
+            await JSRuntime.InvokeVoidAsync("redirectToArtPage");
+            return; // Stop processing further since we're redirecting
         }
+
+        // 🟢 Ensure both scroll and pulse are triggered
+        await JSRuntime.InvokeVoidAsync("triggerPulse");
+        await JSRuntime.InvokeVoidAsync("scrollToBottom");
 
         isTyping = true;
         List<string> responseLines = GetResponse(command);
@@ -78,10 +81,15 @@
             int currentIndex = outputLines.Count - 1;
 
             await TypeOutText(currentIndex);
+
+            // Keep scrolling to bottom after each typed line
+            await JSRuntime.InvokeVoidAsync("scrollToBottom");
         }
 
         isTyping = false;
     }
+
+
 
 
 
@@ -98,6 +106,15 @@
             typingIndex++;
         }
     }
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("focusTerminalInput");
+        }
+    }
+
 
     
     private List<string> GetResponse(string command)
@@ -117,17 +134,20 @@
                 "github: TanZboi",
                 "website: arktan.xyz"
             },
+            "clear" => new List<string>(), // Special case for clearing output
             "help" => new List<string>
             {
                 "Available commands:",
                 "contact - Show contact information",
                 "art - view art",
+                "commission - view commission information",
                 "music - redirect to my music",
                 "about - Show information about me",
                 "clear - Clear the terminal",
                 "background - Change the background shader",
                 "help - Show available commands"
             },
+            "art" => new List<string> { "[Redirecting to artwork page...]" }, // Shows a message before redirecting
             _ => new List<string> { "Unknown command. Try 'help'." },
         };
     }

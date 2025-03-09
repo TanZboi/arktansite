@@ -13,6 +13,46 @@
       "PackagePath": "staticwebassets/Arktan.xyz.styles.css"
     },
     {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/1733962857.natkra_img_0512.webp",
+      "PackagePath": "staticwebassets/art/1733962857.natkra_img_0512.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/59496497@200-1736712713.webp",
+      "PackagePath": "staticwebassets/art/59496497@200-1736712713.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0448.webp",
+      "PackagePath": "staticwebassets/art/IMG_0448.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0454.webp",
+      "PackagePath": "staticwebassets/art/IMG_0454.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0472.webp",
+      "PackagePath": "staticwebassets/art/IMG_0472.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0563.webp",
+      "PackagePath": "staticwebassets/art/IMG_0563.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0572.webp",
+      "PackagePath": "staticwebassets/art/IMG_0572.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0584.webp",
+      "PackagePath": "staticwebassets/art/IMG_0584.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/Untitled_Artwork 3.webp",
+      "PackagePath": "staticwebassets/art/Untitled_Artwork 3.webp"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/art-list.json",
+      "PackagePath": "staticwebassets/art/art-list.json"
+    },
+    {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/css/app.css",
       "PackagePath": "staticwebassets/css/app.css"
     },
@@ -37,8 +77,16 @@
       "PackagePath": "staticwebassets/index.html"
     },
     {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/art.js",
+      "PackagePath": "staticwebassets/js/art.js"
+    },
+    {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/shader.js",
       "PackagePath": "staticwebassets/js/shader.js"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/terminal.js",
+      "PackagePath": "staticwebassets/js/terminal.js"
     },
     {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/sample-data/weather.json",

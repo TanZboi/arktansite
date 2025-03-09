@@ -17,8 +17,7 @@ body {
     background-color: rgba(0, 0, 0, 0.9);
     border: 2px solid #ffffff;  /* White border */
     padding: 15px;
-    overflow-y: auto;
-    box-shadow: 0 0 10px #ffffff;  /* Subtle white glow */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end; /* Ensures input stays at bottom */
@@ -82,4 +81,36 @@ canvas#shaderCanvas {
 .terminal, .output, .prompt, .input {
     color: #ffffff !important;
     font-size: 1rem !important;  /* Make text larger */
+}
+
+.art-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 350px; /* Adjust this value if needed */
+}
+
+
+.art-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 80%;
+    margin: auto;
+}
+
+.art-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.art-image:hover {
+    transform: scale(1.05);
 }
