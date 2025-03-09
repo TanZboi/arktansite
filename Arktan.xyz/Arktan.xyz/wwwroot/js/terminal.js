@@ -6,15 +6,27 @@ window.focusTerminalInput = function() {
 };
 
 window.scrollToBottom = function () {
-    const terminalOutput = document.getElementById("terminal-output");
-    if (terminalOutput) {
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
-    } else {
-        console.warn("scrollToBottom: Terminal output div not found!");
+    let outputDiv = document.querySelector(".output");
+    if (outputDiv) {
+        outputDiv.scrollTop = outputDiv.scrollHeight;
     }
 };
 
 window.redirectToArtPage = function() {
     window.location.href = "/art";
 };
+
+window.focusInput = function() {
+    let inputField = document.querySelector(".input");
+    if (inputField) {
+        inputField.focus();
+    }
+};
+
+window.redirectTo = function(url) {
+    window.location.href = url;
+};
+
+
+
 

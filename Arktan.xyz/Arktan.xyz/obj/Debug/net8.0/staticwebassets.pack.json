@@ -29,10 +29,6 @@
       "PackagePath": "staticwebassets/art/IMG_0454.webp"
     },
     {
-      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0472.webp",
-      "PackagePath": "staticwebassets/art/IMG_0472.webp"
-    },
-    {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0563.webp",
       "PackagePath": "staticwebassets/art/IMG_0563.webp"
     },
@@ -81,8 +77,16 @@
       "PackagePath": "staticwebassets/js/art.js"
     },
     {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/artloader.js",
+      "PackagePath": "staticwebassets/js/artloader.js"
+    },
+    {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/shader.js",
       "PackagePath": "staticwebassets/js/shader.js"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/shaders.js",
+      "PackagePath": "staticwebassets/js/shaders.js"
     },
     {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/terminal.js",
@@ -91,10 +95,6 @@
     {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/sample-data/weather.json",
       "PackagePath": "staticwebassets/sample-data/weather.json"
-    },
-    {
-      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/staticwebapp.config.json",
-      "PackagePath": "staticwebassets/staticwebapp.config.json"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Arktan.xyz.Microsoft.AspNetCore.StaticWebAssets.props",

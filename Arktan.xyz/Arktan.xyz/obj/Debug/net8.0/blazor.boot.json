@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Arktan.xyz",
   "resources": {
-    "hash": "sha256-EbcgfKqsOlFJkgO7NxuDmGhDglyYG96GuRrrqhnbISM=",
+    "hash": "sha256-dKc81nVQcyIbRpdLMSghp0aJDMq6CGUE3mPG9Mitr/I=",
     "jsModuleNative": {
       "dotnet.native.8.0.13.q2rgp36ynn.js": "sha256-xNQsYHtL1vcbrVTHDZAwJM4WovpoyjsrM2C6FQ8cW1w="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-RAf5jgXLg+06C4tJ3CabxAZaVjCN2/+E6fxRjRN8yHk=",
       "netstandard.wasm": "sha256-KCAE8RQwTurP5pGnGF819qf9sK++2O0rXzt6tOjlfi8=",
       "System.Private.CoreLib.wasm": "sha256-LQqLbHgeEX4HONx7GwIxGgmzIXP6n2OPxqnq+/4Tyqk=",
-      "Arktan.xyz.wasm": "sha256-wBxbGn9jSdOGLvmq/BBCIB0Dp1LwVOi7Vcft2MKcP5Y="
+      "Arktan.xyz.wasm": "sha256-F2o+niF1Y3KwbmGNh7nE974wTV4IbPk2BO6lsL5f0SU="
     },
     "pdb": {
-      "Arktan.xyz.pdb": "sha256-lI4Wm82AR3iTWAbeDYGe0qMuLRNEGOvzsucCPkzRUoE="
+      "Arktan.xyz.pdb": "sha256-QEtGbYLn570eXHpMIy6L7jX5u2xIVIR3GxcY9VRUzfI="
     }
   },
   "cacheBootResources": true,

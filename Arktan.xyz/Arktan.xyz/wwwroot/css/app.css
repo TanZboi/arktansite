@@ -27,6 +27,32 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.toggle-terminal {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #222;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.terminal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+}
+
+
 
 /* Terminal output */
 .output {
@@ -58,10 +84,6 @@ body {
     caret-color: white;  /* Ensures the blinking cursor is white */
 }
 
-/* Blinking cursor */
-.cursor {
-    background-color: white !important;
-}
 
 @keyframes blink {
     0% { opacity: 1; }
@@ -83,34 +105,42 @@ canvas#shaderCanvas {
     font-size: 1rem !important;  /* Make text larger */
 }
 
-.art-page {
-    text-align: center;
-    display: flex;
+
+.art-container {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 350px; /* Adjust this value if needed */
 }
 
+.close-art {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: gray;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
 .art-gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates dynamic rows */
+    gap: 10px; /* Adjust spacing */
     justify-content: center;
-    gap: 20px;
-    max-width: 80%;
-    margin: auto;
+    align-items: center;
 }
 
 .art-image {
     width: 100%;
-    max-width: 400px;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-.art-image:hover {
-    transform: scale(1.05);
+    border-radius: 5px;
 }

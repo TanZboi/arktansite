@@ -1,28 +1,66 @@
 @page "/"
 @inject IJSRuntime JSRuntime
 
-<div class="terminal">
-    <div class="output" id="terminal-output">
-        @foreach (var line in outputLines)
-        {
-            <p>@line</p>
-        }
-    </div>
+<button class="toggle-terminal" @onclick="ToggleTerminal">⌨ Show Terminal</button>
 
-    <div class="input-line">
-        <span class="prompt">$ </span>
-        <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" />
-        <span class="cursor">█</span>
+<div class="terminal-container" style="@(showTerminal ? "display:block;" : "display:none;")">
+    <div class="terminal">
+        <div class="output">
+            @foreach (var line in outputLines.AsEnumerable())
+            {
+            <p>@line</p>
+            }
+        </div>
+        <div class="input-line">
+            <span class="prompt">$ </span>
+            <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" />
+            <span class="cursor">Arktan.xyz</span>
+        </div>
+    </div>
+</div>
+
+<div class="art-container" style="@(showArt ? "display:flex;" : "display:none;")">
+    <button class="close-art" @onclick="CloseArt">X</button>
+    <h1>My most recent art</h1>
+    <p>Look at my socials to view my entire portfolio (run 'contact')</p>
+    <div class="art-gallery">
+        @foreach (var image in imageFiles.Where((img => !string.IsNullOrWhiteSpace(img))))
+        {
+            <img src="@image" alt="Artwork" class="art-image" />
+        }
     </div>
 </div>
 
 
 @code {
+    private bool showTerminal = true;
+    private bool showArt = false;
+    private List<string> imageFiles = new();
     private bool isTyping = false;
     private string typingBuffer = "";
     private int typingIndex = 0;
     private string lastCommand = "";
     
+    private async Task ToggleTerminal()
+    {
+        showTerminal = !showTerminal;
+        if (showTerminal)
+        {
+            await JSRuntime.InvokeVoidAsync("focusInput");
+        }
+    }
+
+
+    private void CloseArt()
+    {
+        showArt = false;
+    }
+
+    private async Task ShowArt()
+    {
+        showArt = true;
+        imageFiles = await JSRuntime.InvokeAsync<List<string>>("getImageFiles");
+    }
     
     private List<string> outputLines = new();
     private string currentInput = "";
@@ -55,18 +93,24 @@
         {
             outputLines.Clear(); // Completely wipe terminal output
             StateHasChanged();
-            await JSRuntime.InvokeVoidAsync("triggerPulse");
             return; // Exit early to prevent processing further
         }
         
         if (command == "art")
         {
-            await JSRuntime.InvokeVoidAsync("redirectToArtPage");
-            return; // Stop processing further since we're redirecting
+            await ShowArt();
+            ToggleTerminal();
+        }
+        else if (command == "commission")
+        {
+            await JSRuntime.InvokeVoidAsync("redirectTo", "https://docs.google.com/document/d/1j4Jr_h_mywSUQ7qDodbyNres3F9jV9Fp5hCXjNf4Lwc/edit?usp=sharing");
+        }
+        else
+        {
+            outputLines.Add($"No redirect.");
         }
 
         // 🟢 Ensure both scroll and pulse are triggered
-        await JSRuntime.InvokeVoidAsync("triggerPulse");
         await JSRuntime.InvokeVoidAsync("scrollToBottom");
 
         isTyping = true;
@@ -111,7 +155,7 @@
     {
         if (firstRender)
         {
-            await JSRuntime.InvokeVoidAsync("focusTerminalInput");
+            await JSRuntime.InvokeVoidAsync("initShader");
         }
     }
 
@@ -145,9 +189,13 @@
                 "about - Show information about me",
                 "clear - Clear the terminal",
                 "background - Change the background shader",
+                "study - Open StudyCompanion",
                 "help - Show available commands"
             },
             "art" => new List<string> { "[Redirecting to artwork page...]" }, // Shows a message before redirecting
+            "about" => new List<string> {"I draw sometimes and write music and write code sometimes. I go to university sometimes. The furry allegations are wholeheartedly false." +
+                                         " Special K is the best cereal i guess. Sharks are also cool, I am definitely a shark guy."},
+            "commission" => new List<string> { "[Redirecting to commission information...]" },
             _ => new List<string> { "Unknown command. Try 'help'." },
         };
     }

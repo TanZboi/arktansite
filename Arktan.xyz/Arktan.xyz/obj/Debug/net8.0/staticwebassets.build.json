@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MyZgVZseJJjMTty0QjVgRPQapOMvGPs2fl/XqhW1Klo=",
+  "Hash": "q93pVuXcRDb1uC0CxG8hBmYncUBJHIOGCnHG1sruGxc=",
   "Source": "Arktan.xyz",
   "BasePath": "/",
   "Mode": "Root",
@@ -7902,25 +7902,6 @@
       "OriginalItemSpec": "wwwroot/art/IMG_0454.webp"
     },
     {
-      "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0472.webp",
-      "SourceId": "Arktan.xyz",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "art/IMG_0472.webp",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/art/IMG_0472.webp"
-    },
-    {
       "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/art/IMG_0563.webp",
       "SourceId": "Arktan.xyz",
       "SourceType": "Discovered",
@@ -8130,6 +8111,25 @@
       "OriginalItemSpec": "wwwroot/js/art.js"
     },
     {
+      "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/artloader.js",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "js/artloader.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/artloader.js"
+    },
+    {
       "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/shader.js",
       "SourceId": "Arktan.xyz",
       "SourceType": "Discovered",
@@ -8147,6 +8147,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/shader.js"
+    },
+    {
+      "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/shaders.js",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "js/shaders.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/shaders.js"
     },
     {
       "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/terminal.js",
@@ -8185,25 +8204,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/sample-data/weather.json"
-    },
-    {
-      "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/staticwebapp.config.json",
-      "SourceId": "Arktan.xyz",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
-      "BasePath": "/",
-      "RelativePath": "staticwebapp.config.json",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/staticwebapp.config.json"
     }
   ]
 }
