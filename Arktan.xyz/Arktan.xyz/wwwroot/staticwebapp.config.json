@@ -9,8 +9,9 @@
       "serve": "/index.html"
     }
   ],
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/favicon.ico", "/robots.txt"]
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
   }
 }
