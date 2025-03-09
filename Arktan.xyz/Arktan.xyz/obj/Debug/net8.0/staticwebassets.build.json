@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "omYSZEyUIhV8UO3DBZwkH0tIg3wSdCeiLDV+wSolHgQ=",
+  "Hash": "MyZgVZseJJjMTty0QjVgRPQapOMvGPs2fl/XqhW1Klo=",
   "Source": "Arktan.xyz",
   "BasePath": "/",
   "Mode": "Root",
@@ -8185,6 +8185,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/sample-data/weather.json"
+    },
+    {
+      "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/staticwebapp.config.json",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "staticwebapp.config.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/staticwebapp.config.json"
     }
   ]
 }
