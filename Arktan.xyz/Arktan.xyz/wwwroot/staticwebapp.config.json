@@ -2,18 +2,15 @@
   "routes": [
     {
       "route": "/art",
-      "serve": "/index.html",
-      "statusCode": 200
+      "serve": "/index.html"
     },
     {
-      "route": "/{*path}",
-      "serve": "/index.html",
-      "statusCode": 200
+      "route": "/{*all}",
+      "serve": "/index.html"
     }
   ],
-  "responseOverrides": {
-    "404": {
-      "rewrite": "/index.html"
-    }
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/favicon.ico", "/robots.txt"]
   }
 }
