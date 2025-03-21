@@ -11,11 +11,11 @@ body {
 
 /* Terminal window */
 .terminal {
-    width: 60%;  /* Increase width */
-    max-width: 900px;  /* Prevent it from getting too big */
-    height: 70vh;  /* Increase height */
+    width: 60%;
+    max-width: 900px;
+    height: 70vh;
     background-color: rgba(0, 0, 0, 0.9);
-    border: 2px solid #ffffff;  /* White border */
+    border: 1px solid gray;
     padding: 15px;
     overflow: hidden;
     display: flex;
@@ -25,6 +25,56 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-top: 30px; /* Add padding at the top to make space for the toolbar */
+    border-radius: 10px; /* Add rounded corners to the terminal */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* macOS style toolbar */
+.terminal-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    /* background-color: #333; */ /* Remove the background color */
+    /* border-bottom: 1px solid #555; */ /* Remove the bottom border */
+    position: absolute; /* Position the toolbar absolutely within the terminal */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the toolbar span the entire width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border-top-left-radius: 10px; /* Match top-left corner */
+    border-top-right-radius: 10px; /* Match top-right corner */
+    padding-left: 10px; /* Add some padding on the left for the buttons */
+}
+
+.toolbar-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.toolbar-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.toolbar-button.close {
+    background-color: #ff6058;
+}
+
+.toolbar-button.minimize {
+    background-color: #ffbd2e;
+}
+
+.toolbar-button.maximize {
+    background-color: #27c93d;
+}
+
+.terminal-title {
+    color: #eee;
+    font-size: 0.9rem;
+    margin-left: 15px;
 }
 
 .toggle-terminal {
@@ -51,8 +101,6 @@ body {
     display: none;
     flex-direction: column;
 }
-
-
 
 /* Terminal output */
 .output {
@@ -81,15 +129,23 @@ body {
     font-size: 1.5rem !important;
     width: 100%;
     outline: none;
-    caret-color: white;  /* Ensures the blinking cursor is white */
+    caret-color: white; /* Ensures the blinking cursor is white */
 }
-
 
 @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
+
 /* Make sure the canvas covers the entire screen */
 canvas#shaderCanvas {
     position: fixed;
@@ -100,11 +156,14 @@ canvas#shaderCanvas {
     z-index: -1; /* Puts the canvas behind everything */
 }
 
-.terminal, .output, .prompt, .input {
+.terminal,
+.output,
+.prompt,
+.input {
     color: #ffffff !important;
-    font-size: 1rem !important;  /* Make text larger */
+    font-size: 1rem !important;
+    /* Make text larger */
 }
-
 
 .art-container {
     position: fixed;
@@ -133,8 +192,10 @@ canvas#shaderCanvas {
 
 .art-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates dynamic rows */
-    gap: 10px; /* Adjust spacing */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Creates dynamic rows */
+    gap: 10px;
+    /* Adjust spacing */
     justify-content: center;
     align-items: center;
 }
@@ -146,63 +207,61 @@ canvas#shaderCanvas {
 }
 
 .help-buttons-container {
-    position: fixed;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    background: transparent; /* Remove the black box */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px; /* Adjust width as needed */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Slightly transparent background for visibility */
     padding: 20px;
-    border-radius: 10px;
-    display: none;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 0; /* No rounded corners for a side menu */
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    align-items: flex-start; /* Align items to the left */
+    gap: 20px; /* Spacing between elements */
 }
 
 .close-help {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: gray;
+    background-color: #444; /* Slightly darker background */
     color: white;
     border: none;
-    padding: 5px 10px;
+    border-radius: 5px; /* Add rounded corners */
+    padding: 8px 12px; /* Increase padding */
     cursor: pointer;
+    font-size: 0.9rem; /* Adjust font size */
+    transition: background-color 0.3s ease; /* Add transition for hover effect */
+    margin-bottom: 10px; /* Add some space below the close button */
+}
+
+.close-help:hover {
+    background-color: #666; /* Darken on hover */
 }
 
 .command-buttons {
-    display: flex; /* Enable flex layout for buttons */
-    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
-    gap: 15px; /* Increase spacing between buttons */
-    margin-top: 20px; /* Add some top margin */
-    justify-content: center; /* Center the buttons */
+    display: flex;
+    flex-direction: column; /* Arrange buttons in a column */
+    gap: 10px;
+    margin-top: 30px; /* Adjust top margin */
+    align-items: flex-start; /* Align buttons to the left */
 }
 
 .command-buttons button {
-    padding: 12px 20px; /* Increase padding for bigger buttons */
+    padding: 10px 15px;
     background-color: #333;
     color: white;
     border: none;
-    border-radius: 8px; /* Slightly more rounded corners */
+    border-radius: 5px;
     cursor: pointer;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.2rem; /* Increase font size */
-    transition: background-color 0.3s ease; /* Add a smooth transition */
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make buttons take full width of the container */
+    text-align: left; /* Align text to the left */
 }
 
 .command-buttons button:hover {
-    background-color: #555; /* Darken the background on hover */
-}
-
-.tetris-container iframe.tetris-frame {
-    width: 100%;
-    height: auto; /* Adjust height automatically based on width */
-    max-height: 600px; /* Or whatever maximum height you prefer */
-    display: block; /* Prevent extra space below the iframe */
-}
-
-.tetris-container {
-    /* Add any styling for the container div if needed */
-    max-width: 600px; /* Example maximum width for the container */
-    margin: 0 auto; /* Center the container if desired */
+    background-color: #555;
 }

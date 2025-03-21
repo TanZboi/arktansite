@@ -60,3 +60,45 @@ window.randomlyPositionHelpButtons = function() {
     // Move buttons every 2 seconds (adjust as needed)
     setInterval(moveButtons, 2000);
 };
+
+function makeTerminalDraggable() {
+    const terminal = document.querySelector('.terminal');
+    const toolbar = document.querySelector('.terminal-toolbar');
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    if (toolbar) {
+        toolbar.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - toolbar.getBoundingClientRect().left;
+            offsetY = e.clientY - toolbar.getBoundingClientRect().top;
+            terminal.style.cursor = 'grabbing';
+        });
+    }
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+
+        terminal.style.left = e.clientX - offsetX + 'px';
+        terminal.style.top = e.clientY - offsetY + 'px';
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+
+        isDragging = false;
+        terminal.style.cursor = 'grab';
+    });
+
+    // Optional: Set the cursor style for the toolbar to indicate it's draggable
+    if (toolbar) {
+        toolbar.style.cursor = 'grab';
+    }
+}
+
+// Call this function after the component has rendered
+function initializeDraggableTerminal() {
+    makeTerminalDraggable();
+}
+
+

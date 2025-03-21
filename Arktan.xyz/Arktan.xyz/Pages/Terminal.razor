@@ -5,6 +5,14 @@
 
 <div class="terminal-container" style="@(showTerminal ? "display:block;" : "display:none;")">
     <div class="terminal">
+        <div class="terminal-toolbar">
+            <div class="toolbar-buttons">
+                <div class="toolbar-button close"></div>
+                <div class="toolbar-button minimize"></div>
+                <div class="toolbar-button maximize"></div>
+            </div>
+            <span class="terminal-title">📁~</span>
+        </div>
         <div class="output">
             @foreach (var line in outputLines.AsEnumerable())
             {
@@ -13,7 +21,7 @@
         </div>
         <div class="input-line">
             <span class="prompt">$ </span>
-            <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" />
+            <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" placeholder="  it addType 'help' for a list of commands"/>
             <span class="cursor">Arktan.xyz</span>
         </div>
     </div>
@@ -223,6 +231,7 @@
         if (firstRender)
         {
             await JSRuntime.InvokeVoidAsync("initShader");
+            await JSRuntime.InvokeVoidAsync("initializeDraggableTerminal"); // Call the new JavaScript function
         }
     }
 
