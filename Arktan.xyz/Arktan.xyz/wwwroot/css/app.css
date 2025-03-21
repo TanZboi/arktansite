@@ -144,3 +144,65 @@ canvas#shaderCanvas {
     height: auto;
     border-radius: 5px;
 }
+
+.help-buttons-container {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    background: transparent; /* Remove the black box */
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close-help {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: gray;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.command-buttons {
+    display: flex; /* Enable flex layout for buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap to the next line */
+    gap: 15px; /* Increase spacing between buttons */
+    margin-top: 20px; /* Add some top margin */
+    justify-content: center; /* Center the buttons */
+}
+
+.command-buttons button {
+    padding: 12px 20px; /* Increase padding for bigger buttons */
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Slightly more rounded corners */
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.2rem; /* Increase font size */
+    transition: background-color 0.3s ease; /* Add a smooth transition */
+}
+
+.command-buttons button:hover {
+    background-color: #555; /* Darken the background on hover */
+}
+
+.tetris-container iframe.tetris-frame {
+    width: 100%;
+    height: auto; /* Adjust height automatically based on width */
+    max-height: 600px; /* Or whatever maximum height you prefer */
+    display: block; /* Prevent extra space below the iframe */
+}
+
+.tetris-container {
+    /* Add any styling for the container div if needed */
+    max-width: 600px; /* Example maximum width for the container */
+    margin: 0 auto; /* Center the container if desired */
+}

@@ -8,7 +8,7 @@
         <div class="output">
             @foreach (var line in outputLines.AsEnumerable())
             {
-            <p>@line</p>
+                <p>@line</p>
             }
         </div>
         <div class="input-line">
@@ -31,16 +31,41 @@
     </div>
 </div>
 
+<div class="help-buttons-container" style="@(showHelpButtons ? "display:flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;" : "display:none;")">
+    <button class="close-help" @onclick="CloseHelpButtons">X</button>
+    <div class="command-buttons">
+        @foreach (var command in GetAvailableCommands())
+        {
+            <button @onclick="@(() => ExecuteHelpCommand(command))">@command</button>
+        }
+    </div>
+</div>
+
+<div class="tetris-container" style="@(showTetris ? "display:block;" : "display:none;")">
+    <iframe class="tetris-frame" src="https://www.play-tetris-online.com/tetris-html5/" width="600px" height="600px" scrolling="no" frameborder="0"></iframe>
+    <button @onclick="() => showTetris = false">Close Tetris</button>
+</div>
 
 @code {
+
+    List<string> shaderList = new()
+    {
+        "Converted ShaderToy",
+        "Moving Boxes",
+        "Rotating Fractal",
+        "Abstract Color Swirl"
+    };
+
     private bool showTerminal = true;
     private bool showArt = false;
+    private bool showHelpButtons = false;
     private List<string> imageFiles = new();
     private bool isTyping = false;
+    private bool showTetris = false;
     private string typingBuffer = "";
     private int typingIndex = 0;
     private string lastCommand = "";
-    
+
     private async Task ToggleTerminal()
     {
         showTerminal = !showTerminal;
@@ -50,10 +75,17 @@
         }
     }
 
-
     private void CloseArt()
     {
         showArt = false;
+    }
+
+    private void CloseHelpButtons()
+    {
+        showHelpButtons = false;
+        showTerminal = true; // Reopen the terminal when closing help
+        StateHasChanged();
+        JSRuntime.InvokeVoidAsync("focusInput");
     }
 
     private async Task ShowArt()
@@ -61,7 +93,7 @@
         showArt = true;
         imageFiles = await JSRuntime.InvokeAsync<List<string>>("getImageFiles");
     }
-    
+
     private List<string> outputLines = new();
     private string currentInput = "";
 
@@ -73,12 +105,21 @@
             currentInput = "";
         }
     }
-    
+
     private ElementReference outputDiv;
 
     private async Task ScrollToBottom()
     {
         await JSRuntime.InvokeVoidAsync("scrollToBottom", outputDiv); // Scroll to the bottom of the output
+    }
+
+    private void ChangeBackgroundShader()
+    {
+        int newShaderIndex = new Random().Next(shaderList.Count); // Pick a random shader
+        string newShader = shaderList[newShaderIndex];
+
+        JSRuntime.InvokeVoidAsync("setShader", newShader);
+        outputLines.Add($"Background changed to: {newShader}");
     }
 
     private async Task ProcessCommand(string command)
@@ -88,14 +129,14 @@
         lastCommand = "$ " + command;
         outputLines.Add(lastCommand);
         StateHasChanged();
-        
+
         if (command == "clear")
         {
             outputLines.Clear(); // Completely wipe terminal output
             StateHasChanged();
             return; // Exit early to prevent processing further
         }
-        
+
         if (command == "art")
         {
             await ShowArt();
@@ -105,14 +146,44 @@
         {
             await JSRuntime.InvokeVoidAsync("redirectTo", "https://docs.google.com/document/d/1j4Jr_h_mywSUQ7qDodbyNres3F9jV9Fp5hCXjNf4Lwc/edit?usp=sharing");
         }
+        else if (command == "background")
+        {
+            ChangeBackgroundShader();
+        }
+        else if (command == "help")
+        {
+            showHelpButtons = true;
+            StateHasChanged();
+        }
+        else if (command == "music")
+        {
+            await JSRuntime.InvokeVoidAsync("redirectTo", "https://www.youtube.com/@Arktan"); // Replace with your music link
+        }
+        else if (command == "study")
+        {
+            await JSRuntime.InvokeVoidAsync("redirectTo", "YOUR_STUDY_LINK_HERE"); // Replace with your study link
+        }
+        else if (command == "info")
+        {
+            //outputLines.AddRange(GetResponse(command)); // Directly add info to output
+        }
+        else if (command == "about")
+        {
+            //outputLines.AddRange(GetResponse(command)); // Directly add about info to output
+        }
+        else if (command == "tetris")
+        {
+            showTetris = !showTetris;
+            StateHasChanged();
+        }
         else
         {
-            outputLines.Add($"No redirect.");
+            //outputLines.AddRange(GetResponse(command)); // Get response for other commands
         }
 
         // 🟢 Ensure both scroll and pulse are triggered
         await JSRuntime.InvokeVoidAsync("scrollToBottom");
-
+        
         isTyping = true;
         List<string> responseLines = GetResponse(command);
 
@@ -121,7 +192,7 @@
             typingBuffer = line;
             typingIndex = 0;
 
-            outputLines.Add(""); 
+            outputLines.Add("");
             int currentIndex = outputLines.Count - 1;
 
             await TypeOutText(currentIndex);
@@ -132,10 +203,6 @@
 
         isTyping = false;
     }
-
-
-
-
 
     private async Task TypeOutText(int index)
     {
@@ -150,7 +217,7 @@
             typingIndex++;
         }
     }
-    
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -159,8 +226,32 @@
         }
     }
 
+    private List<string> GetAvailableCommands()
+    {
+        return new List<string>
+        {
+            "contact",
+            "art",
+            "commission",
+            "music",
+            "about",
+            "clear",
+            "background",
+            "study",
+            "info",
+            "help",
+            "tetris"
+        };
+    }
 
-    
+    private async Task ExecuteHelpCommand(string command)
+    {
+        showHelpButtons = false; // Hide the help buttons
+        showTerminal = true;     // Show the terminal again
+        currentInput = command;  // Set the input to the clicked command
+        await InvokeAsync(() => HandleKeyDown(new KeyboardEventArgs { Key = "Enter" })); // Simulate pressing Enter
+    }
+
     private List<string> GetResponse(string command)
     {
         return command switch
@@ -190,12 +281,15 @@
                 "clear - Clear the terminal",
                 "background - Change the background shader",
                 "study - Open StudyCompanion",
+                "info - Show website information & credits",
                 "help - Show available commands"
             },
             "art" => new List<string> { "[Redirecting to artwork page...]" }, // Shows a message before redirecting
             "about" => new List<string> {"I draw sometimes and write music and write code sometimes. I go to university sometimes. The furry allegations are wholeheartedly false." +
                                          " Special K is the best cereal i guess. Sharks are also cool, I am definitely a shark guy."},
             "commission" => new List<string> { "[Redirecting to commission information...]" },
+            "background" => new List<string> { "Switching Background Shader... (It might choose the same one again)" },
+            "info" => new List<string> {"Website is made by me using blazor webassembly. Hosted using Azure Static Web app. Shaders by me, Danilo Guanabara, whisky_shusuky and bradjamesgrant. "},
             _ => new List<string> { "Unknown command. Try 'help'." },
         };
     }

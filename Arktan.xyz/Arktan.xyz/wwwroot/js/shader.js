@@ -1,13 +1,23 @@
+window.currentShader = null;
+window.isTransitioning = false;
+window.targetOpacity = 1;
+window.currentOpacity = 1;
+window.gl = null;
+window.shaderProgram = null;
+window.positionLocation = null;
+window.resolutionLocation = null;
+window.timeLocation = null;
+window.opacityLocation = null;
+window.canvas = null;
+
 window.initShader = async function() {
-    console.log("Fetching random shader...");
-
-    // Get the random shader from shaders.js
+    console.log("Fetching initial shader...");
     let shaderData = await window.getRandomShader();
+    console.log("Initializing with shader:", shaderData.name);
+    window.currentShader = shaderData;
 
-    console.log("Initializing shader:", shaderData.name);
-
-    const canvas = document.getElementById("shaderCanvas");
-    const gl = canvas.getContext("webgl");
+    window.canvas = document.getElementById("shaderCanvas");
+    window.gl = canvas.getContext("webgl");
 
     if (!gl) {
         console.error("WebGL not supported");
@@ -28,8 +38,6 @@ window.initShader = async function() {
             gl_Position = position;
         }`;
 
-    const fragmentShaderSource = shaderData.fragmentSource;
-
     function compileShader(source, type) {
         const shader = gl.createShader(type);
         gl.shaderSource(shader, source);
@@ -42,9 +50,9 @@ window.initShader = async function() {
     }
 
     const vertexShader = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-    const fragmentShader = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
+    const fragmentShader = compileShader(window.currentShader.fragmentSource, gl.FRAGMENT_SHADER);
 
-    const shaderProgram = gl.createProgram();
+    window.shaderProgram = gl.createProgram();
     gl.attachShader(shaderProgram, vertexShader);
     gl.attachShader(shaderProgram, fragmentShader);
     gl.linkProgram(shaderProgram);
@@ -65,16 +73,87 @@ window.initShader = async function() {
     gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
 
-    const positionLocation = gl.getAttribLocation(shaderProgram, "position");
+    window.positionLocation = gl.getAttribLocation(shaderProgram, "position");
     gl.enableVertexAttribArray(positionLocation);
     gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
-    function render(time) {
-        gl.uniform1f(gl.getUniformLocation(shaderProgram, "time"), time * 0.001);
-        gl.uniform2f(gl.getUniformLocation(shaderProgram, "resolution"), canvas.width, canvas.height);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-        gl.drawArrays(gl.TRIANGLES, 0, 3);
-        requestAnimationFrame(render);
-    }
-    requestAnimationFrame(render);
+    window.resolutionLocation = gl.getUniformLocation(shaderProgram, "resolution");
+    window.timeLocation = gl.getUniformLocation(shaderProgram, "time");
+    window.opacityLocation = gl.getUniformLocation(shaderProgram, "opacity");
+
+    // Start rendering loop
+    render();
 };
+
+window.setShader = async function(name) {
+    if (window.isTransitioning || (window.currentShader && window.currentShader.name === name)) {
+        return;
+    }
+
+    window.isTransitioning = true;
+    window.targetOpacity = 0;
+
+    function fadeOut(callback) {
+        window.currentOpacity -= 0.02; // Adjust fade speed
+        if (window.currentOpacity <= 0) {
+            window.currentOpacity = 0;
+            callback();
+            return;
+        }
+        requestAnimationFrame(() => fadeOut(callback));
+    }
+
+    fadeOut(async () => {
+        const shader = shaders.find(s => s.name === name);
+        if (!shader) {
+            console.error("Shader not found:", name);
+            window.isTransitioning = false;
+            return;
+        }
+
+        window.currentShader = shader;
+        const fragmentShaderSource = shader.fragmentSource;
+        const fragmentShader = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
+        gl.attachShader(shaderProgram, fragmentShader);
+        gl.linkProgram(shaderProgram);
+        gl.useProgram(shaderProgram);
+        window.resolutionLocation = gl.getUniformLocation(shaderProgram, "resolution");
+        window.timeLocation = gl.getUniformLocation(shaderProgram, "time");
+        window.opacityLocation = gl.getUniformLocation(shaderProgram, "opacity");
+
+
+        window.targetOpacity = 1;
+        fadeIn();
+    });
+};
+
+function fadeIn() {
+    window.currentOpacity += 0.02; // Adjust fade speed
+    if (window.currentOpacity >= window.targetOpacity) {
+        window.currentOpacity = window.targetOpacity;
+        window.isTransitioning = false;
+        return;
+    }
+    requestAnimationFrame(fadeIn);
+}
+
+function compileShader(source, type) {
+    const shader = gl.createShader(type);
+    gl.shaderSource(shader, source);
+    gl.compileShader(shader);
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error("Shader error:", gl.getShaderInfoLog(shader));
+        return null;
+    }
+    return shader;
+}
+
+function render(time) {
+    if (!window.gl || !window.shaderProgram) return;
+    gl.uniform1f(window.timeLocation, time * 0.001);
+    gl.uniform2f(window.resolutionLocation, canvas.width, canvas.height);
+    gl.uniform1f(window.opacityLocation, window.currentOpacity);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    requestAnimationFrame(render);
+}

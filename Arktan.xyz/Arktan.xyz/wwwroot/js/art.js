@@ -11,8 +11,4 @@ window.getImageFiles = async function() {
     }
 };
 
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Backspace") {
-        history.back();
-    }
-});
+
