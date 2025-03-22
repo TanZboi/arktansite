@@ -1,3 +1,15 @@
+.art-container {
+    display: block; /* Or display: flex; if you want to use flexbox for its layout */
+    /* You might want to override other styles from app.css here as well, */
+    /* such as background color, position, etc., to fit your brighter theme. */
+    position: relative; /* Change from fixed to relative to flow with the page */
+    top: auto;
+    left: auto;
+    transform: none;
+    background: #f4f4f4; /* Match the body background or use a different light color */
+    align-items: flex-start; /* Adjust alignment as needed */
+}
+
 body {
     background-color: black;
     color: white;
@@ -165,7 +177,7 @@ canvas#shaderCanvas {
     /* Make text larger */
 }
 
-.art-container {
+.terminal-art-container {
     position: fixed;
     top: 50px;
     left: 50%;

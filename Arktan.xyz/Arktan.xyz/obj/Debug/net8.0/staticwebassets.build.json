@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q93pVuXcRDb1uC0CxG8hBmYncUBJHIOGCnHG1sruGxc=",
+  "Hash": "+tQXN8Y9XTU707Gti3SiS4Hh3GQY+kX/89QPYT0oZYI=",
   "Source": "Arktan.xyz",
   "BasePath": "/",
   "Mode": "Root",
@@ -7995,6 +7995,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/app.css"
+    },
+    {
+      "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/css/art.css",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "css/art.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/art.css"
     },
     {
       "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/css/bootstrap/bootstrap.min.css",

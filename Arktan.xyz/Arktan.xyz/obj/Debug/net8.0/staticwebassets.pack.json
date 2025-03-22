@@ -53,6 +53,10 @@
       "PackagePath": "staticwebassets/css/app.css"
     },
     {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/css/art.css",
+      "PackagePath": "staticwebassets/css/art.css"
+    },
+    {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/css/bootstrap/bootstrap.min.css",
       "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
     },

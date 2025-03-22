@@ -1,0 +1,16 @@
+body.art-page {
+    background-color: #f4f4f4 !important;
+    color: #333 !important;
+}
+
+.art-container h2 {
+    color: #007bff !important;
+}
+
+.art-container p {
+    line-height: 1.6;
+}
+
+.art-container * {
+    color: #333 !important;
+}

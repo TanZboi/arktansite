@@ -21,13 +21,13 @@
         </div>
         <div class="input-line">
             <span class="prompt">$ </span>
-            <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" placeholder="  it addType 'help' for a list of commands"/>
+            <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" placeholder="  Try 'help'"/>
             <span class="cursor">Arktan.xyz</span>
         </div>
     </div>
 </div>
 
-<div class="art-container" style="@(showArt ? "display:flex;" : "display:none;")">
+<div class="terminal-art-container" style="@(showArt ? "display:flex;" : "display:none;")">
     <button class="close-art" @onclick="CloseArt">X</button>
     <h1>My most recent art</h1>
     <p>Look at my socials to view my entire portfolio (run 'contact')</p>
@@ -241,7 +241,6 @@
         {
             "contact",
             "art",
-            "commission",
             "music",
             "about",
             "clear",
@@ -284,7 +283,6 @@
                 "Available commands:",
                 "contact - Show contact information",
                 "art - view art",
-                "commission - view commission information",
                 "music - redirect to my music",
                 "about - Show information about me",
                 "clear - Clear the terminal",

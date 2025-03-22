@@ -1029,3 +1029,4 @@
 /Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/obj/Debug/net8.0/refint/Arktan.xyz.dll
 /Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/obj/Debug/net8.0/Arktan.xyz.pdb
 /Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/obj/Debug/net8.0/ref/Arktan.xyz.dll
+/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/obj/Debug/net8.0/scopedcss/Layout/YourArtLayout.razor.rz.scp.css
