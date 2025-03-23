@@ -101,6 +101,14 @@
       "PackagePath": "staticwebassets/sample-data/weather.json"
     },
     {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/staticwebapp.config.json",
+      "PackagePath": "staticwebassets/staticwebapp.config.json"
+    },
+    {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/test.txt",
+      "PackagePath": "staticwebassets/test.txt"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.Arktan.xyz.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
