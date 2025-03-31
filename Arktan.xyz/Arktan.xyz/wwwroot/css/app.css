@@ -1,15 +1,6 @@
-.art-container {
-    display: block; /* Or display: flex; if you want to use flexbox for its layout */
-    /* You might want to override other styles from app.css here as well, */
-    /* such as background color, position, etc., to fit your brighter theme. */
-    position: relative; /* Change from fixed to relative to flow with the page */
-    top: auto;
-    left: auto;
-    transform: none;
-    background: #f4f4f4; /* Match the body background or use a different light color */
-    align-items: flex-start; /* Adjust alignment as needed */
-}
+/* app.css */
 
+/* General body styling */
 body {
     background-color: black;
     color: white;
@@ -32,13 +23,13 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Ensures input stays at bottom */
+    justify-content: flex-end;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding-top: 30px; /* Add padding at the top to make space for the toolbar */
-    border-radius: 10px; /* Add rounded corners to the terminal */
+    padding-top: 30px;
+    border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 }
 
@@ -47,16 +38,14 @@ body {
     display: flex;
     align-items: center;
     padding: 8px 10px;
-    /* background-color: #333; */ /* Remove the background color */
-    /* border-bottom: 1px solid #555; */ /* Remove the bottom border */
-    position: absolute; /* Position the toolbar absolutely within the terminal */
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Make the toolbar span the entire width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    border-top-left-radius: 10px; /* Match top-left corner */
-    border-top-right-radius: 10px; /* Match top-right corner */
-    padding-left: 10px; /* Add some padding on the left for the buttons */
+    width: 100%;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 10px;
 }
 
 .toolbar-buttons {
@@ -99,6 +88,11 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-terminal:hover {
+    background-color: #444;
 }
 
 .terminal-container {
@@ -119,12 +113,13 @@ body {
     min-height: 50vh;
     overflow-y: auto;
     font-size: 1rem;
-    line-height: 1;
+    line-height: 1.5;
 }
 
 /* Input line */
 .input-line {
     display: flex;
+    align-items: center;
 }
 
 /* Terminal prompt */
@@ -141,18 +136,17 @@ body {
     font-size: 1.5rem !important;
     width: 100%;
     outline: none;
-    caret-color: white; /* Ensures the blinking cursor is white */
+    caret-color: white;
 }
 
+/* Cursor animation */
 @keyframes blink {
     0% {
         opacity: 1;
     }
-
     50% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -165,18 +159,19 @@ canvas#shaderCanvas {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; /* Puts the canvas behind everything */
+    z-index: -1;
 }
 
+/* Terminal text color */
 .terminal,
 .output,
 .prompt,
 .input {
     color: #ffffff !important;
     font-size: 1rem !important;
-    /* Make text larger */
 }
 
+/* Art container */
 .terminal-art-container {
     position: fixed;
     top: 50px;
@@ -205,9 +200,7 @@ canvas#shaderCanvas {
 .art-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* Creates dynamic rows */
     gap: 10px;
-    /* Adjust spacing */
     justify-content: center;
     align-items: center;
 }
@@ -218,46 +211,47 @@ canvas#shaderCanvas {
     border-radius: 5px;
 }
 
+/* Help buttons container */
 .help-buttons-container {
     position: absolute;
     top: 0;
     left: 0;
-    width: 150px; /* Adjust width as needed */
+    width: 150px;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Slightly transparent background for visibility */
+    background: rgba(0, 0, 0, 0.8);
     padding: 20px;
-    border-radius: 0; /* No rounded corners for a side menu */
+    border-radius: 0;
     display: flex;
-    flex-direction: column; /* Arrange items in a column */
-    align-items: flex-start; /* Align items to the left */
-    gap: 20px; /* Spacing between elements */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .close-help {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #444; /* Slightly darker background */
+    background-color: #444;
     color: white;
     border: none;
-    border-radius: 5px; /* Add rounded corners */
-    padding: 8px 12px; /* Increase padding */
+    border-radius: 5px;
+    padding: 8px 12px;
     cursor: pointer;
-    font-size: 0.9rem; /* Adjust font size */
-    transition: background-color 0.3s ease; /* Add transition for hover effect */
-    margin-bottom: 10px; /* Add some space below the close button */
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
 .close-help:hover {
-    background-color: #666; /* Darken on hover */
+    background-color: #666;
 }
 
 .command-buttons {
     display: flex;
-    flex-direction: column; /* Arrange buttons in a column */
+    flex-direction: column;
     gap: 10px;
-    margin-top: 30px; /* Adjust top margin */
-    align-items: flex-start; /* Align buttons to the left */
+    margin-top: 30px;
+    align-items: flex-start;
 }
 
 .command-buttons button {
@@ -270,10 +264,34 @@ canvas#shaderCanvas {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1rem;
     transition: background-color 0.3s ease;
-    width: 100%; /* Make buttons take full width of the container */
-    text-align: left; /* Align text to the left */
+    width: 100%;
+    text-align: left;
 }
 
 .command-buttons button:hover {
     background-color: #555;
+}
+
+/* app.css */
+
+/* app.css */
+
+/* Toggle mode button */
+.toggle-mode {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem; /* Match the font size of .terminal-title */
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-decoration: underline;
+    line-height: 1.5; /* Match the line height of .terminal-title */
+}
+
+.toggle-mode:hover {
+    text-decoration: none;
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Arktan.xyz.csproj": {}
+    "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Arktan.xyz.csproj": {}
   },
   "projects": {
-    "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Arktan.xyz.csproj": {
+    "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Arktan.xyz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Arktan.xyz.csproj",
+        "projectUniqueName": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Arktan.xyz.csproj",
         "projectName": "Arktan.xyz",
-        "projectPath": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/Arktan.xyz.csproj",
+        "projectPath": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Arktan.xyz.csproj",
         "packagesPath": "/Users/bill/.nuget/packages/",
-        "outputPath": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/obj/",
+        "outputPath": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bill/.nuget/NuGet/NuGet.Config"
