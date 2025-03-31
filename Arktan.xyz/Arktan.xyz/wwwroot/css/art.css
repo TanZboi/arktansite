@@ -14,3 +14,21 @@ body.art-page {
 .art-container * {
     color: #333 !important;
 }
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.art-piece {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.art-piece img {
+    max-width: 100%;
+    height: auto;
+}

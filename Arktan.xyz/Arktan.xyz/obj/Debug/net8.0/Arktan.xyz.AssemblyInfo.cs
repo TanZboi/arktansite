@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arktan.xyz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86a884f8886657a84ee8f8f7508e2b2ac8056c60")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfc0f46551960763a58f3aaf903d8c4691066f23")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arktan.xyz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arktan.xyz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

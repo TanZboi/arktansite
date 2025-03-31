@@ -1,2 +1,16 @@
-Hello world!!!
-DASDasdasds
+//Information:
+
+whoami: Displays the current user's information (if applicable).
+date: Shows the current date and time.
+time: Shows the current time.
+
+Web-Related (if your terminal interacts with the web application):
+
+goto [url]: Navigates to a specific URL within your application.
+open [page]: Opens a specific page or section of your app.
+
+Art-Related (based on the context of your website):
+
+listart or lsart: Lists the available art pieces or galleries.
+viewart [id or name]: Displays a specific artwork.
+commissions: Shows information about commissions.

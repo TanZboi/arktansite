@@ -85,6 +85,10 @@
       "PackagePath": "staticwebassets/js/artloader.js"
     },
     {
+      "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/proxy-server.js",
+      "PackagePath": "staticwebassets/js/proxy-server.js"
+    },
+    {
       "Id": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/shader.js",
       "PackagePath": "staticwebassets/js/shader.js"
     },

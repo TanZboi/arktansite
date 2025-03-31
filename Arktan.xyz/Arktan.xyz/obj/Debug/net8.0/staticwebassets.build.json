@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OKR7A9g2KOt/MyjQqZ/vmO8EqmszWgstmdsyZp5HQso=",
+  "Hash": "emJiHkiDSir/GCgZxhPvqT5lHcAp0gK0Lh8DqSKUiaI=",
   "Source": "Arktan.xyz",
   "BasePath": "/",
   "Mode": "Root",
@@ -8147,6 +8147,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/artloader.js"
+    },
+    {
+      "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/proxy-server.js",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "js/proxy-server.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/proxy-server.js"
     },
     {
       "Identity": "/Users/bill/Documents/website/arktansite/Arktan.xyz/arktan.xyz/wwwroot/js/shader.js",

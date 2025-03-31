@@ -1,11 +1,33 @@
 @page "/art"
+@inject FurAffinityService FurAffinityService
 
-<PageTitle>Arktan's Art</PageTitle>
+<PageTitle>Natkra</PageTitle>
 
 <div class="art-container">
     <section id="gallery">
         <h2>Gallery</h2>
         <p>Welcome to my art gallery! Here you'll find a collection of my work.</p>
+        @if (artPieces == null)
+        {
+            <p>Loading...</p>
+        }
+        else if (!artPieces.Any())
+        {
+            <p>No art pieces found.</p>
+        }
+        else
+        {
+            <div class="gallery-grid">
+                @foreach (var artPiece in artPieces)
+                {
+                    <div class="art-piece">
+                        <img src="@artPiece.ImageUrl" alt="@artPiece.Title" />
+                        <h3>@artPiece.Title</h3>
+                        <p>@artPiece.Description</p>
+                    </div>
+                }
+            </div>
+        }
     </section>
 
     <section id="commissions">
@@ -21,5 +43,10 @@
 </div>
 
 @code {
-// You can add any C# logic here if needed
+    private List<ArtPiece> artPieces;
+
+    protected override async Task OnInitializedAsync()
+    {
+        artPieces = await FurAffinityService.GetGalleryAsync("natkra");
+    }
 }

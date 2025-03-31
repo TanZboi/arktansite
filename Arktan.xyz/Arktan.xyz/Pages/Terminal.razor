@@ -11,7 +11,7 @@
                 <div class="toolbar-button minimize"></div>
                 <div class="toolbar-button maximize"></div>
             </div>
-            <span class="terminal-title">📁~</span>
+            <span class="terminal-title"> natkra/arktan~ 🦈</span>
         </div>
         <div class="output">
             @foreach (var line in outputLines.AsEnumerable())
@@ -21,7 +21,7 @@
         </div>
         <div class="input-line">
             <span class="prompt">$ </span>
-            <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" placeholder="  Try 'help'"/>
+            <input @bind="currentInput" @bind:event="oninput" @onkeydown="HandleKeyDown" class="input" placeholder="  Try 'help', or 'login (username)'"/>
             <span class="cursor">Arktan.xyz</span>
         </div>
     </div>
@@ -55,7 +55,6 @@
 </div>
 
 @code {
-
     List<string> shaderList = new()
     {
         "Converted ShaderToy",
@@ -64,6 +63,9 @@
         "Abstract Color Swirl"
     };
 
+    private bool isChatMode = false;
+    private GoogleGeminiService _geminiService;
+    
     private bool showTerminal = true;
     private bool showArt = false;
     private bool showHelpButtons = false;
@@ -73,6 +75,10 @@
     private string typingBuffer = "";
     private int typingIndex = 0;
     private string lastCommand = "";
+    private bool isLoggedIn = false; // Flag to track login status
+    private string loggedInUser = "";
+    private List<string> validUsers = new List<string>() { "ryanw", "ollyj", "zarrosz", "doma", "henryc", "samc", "billt", "griffonki"};
+    private List<string> conversationHistory = new();
 
     private async Task ToggleTerminal()
     {
@@ -81,6 +87,11 @@
         {
             await JSRuntime.InvokeVoidAsync("focusInput");
         }
+    }
+    
+    protected override async Task OnInitializedAsync()
+    {
+        _geminiService = new GoogleGeminiService(new HttpClient(), "AIzaSyDxjAmSKL6cPkMdZpt39cvbAwytpls3p1w");
     }
 
     private void CloseArt()
@@ -113,6 +124,13 @@
             currentInput = "";
         }
     }
+    
+    private void ToggleChatMode()
+    {
+        isChatMode = !isChatMode;
+        outputLines.Add(isChatMode ? "Chat mode enabled." : "Chat mode disabled.");
+        StateHasChanged();
+    }
 
     private ElementReference outputDiv;
 
@@ -136,8 +154,17 @@
 
         lastCommand = "$ " + command;
         outputLines.Add(lastCommand);
+        conversationHistory.Add(command);
         StateHasChanged();
-
+        List<string> responseLines = new();
+        
+        if (isChatMode)
+        {
+            var response = await _geminiService.SendMessageAsync(conversationHistory);
+            responseLines.Add(response);
+            await JSRuntime.InvokeVoidAsync("scrollToBottom");
+        }
+        
         if (command == "clear")
         {
             outputLines.Clear(); // Completely wipe terminal output
@@ -160,6 +187,7 @@
         }
         else if (command == "help")
         {
+            responseLines = GetResponse(command);
             showHelpButtons = true;
             StateHasChanged();
         }
@@ -173,10 +201,12 @@
         }
         else if (command == "info")
         {
+            responseLines = GetResponse(command);
             //outputLines.AddRange(GetResponse(command)); // Directly add info to output
         }
         else if (command == "about")
         {
+            responseLines = GetResponse(command);
             //outputLines.AddRange(GetResponse(command)); // Directly add about info to output
         }
         else if (command == "tetris")
@@ -184,16 +214,61 @@
             showTetris = !showTetris;
             StateHasChanged();
         }
+        else if (command == "whoami")
+        {
+            responseLines.Add(isLoggedIn ? $"You are logged in as {loggedInUser}" : " a guest");
+        }
+        else if (command == "chat")
+        {
+            if (isLoggedIn)
+            {
+                ToggleChatMode();
+            }
+            else
+            {
+                responseLines.Add("You need to be logged in to use chat mode.");
+            }
+        }
+        else if(command.StartsWith("login"))
+        {
+            //split the command into parts
+            string[] parts = command.Split(" ");
+            //if the command has more than 1 part
+            if(parts.Length > 1)
+            {
+                //if the second part is a valid user
+                if(validUsers.Contains(parts[1]))
+                {
+                    //set the logged in user to the second part
+                    loggedInUser = parts[1];
+                    //set the logged in flag to true
+                    isLoggedIn = true;
+                    //output a message to the terminal
+                    outputLines.Add($"Logged in as {loggedInUser}");
+                    ToggleChatMode();
+                    return;
+                }
+                else
+                {
+                    //output a message to the terminal
+                    outputLines.Add("Invalid user");
+                }
+            }
+            else
+            {
+                //output a message to the terminal
+                outputLines.Add("Please enter a username");
+            }
+        }
         else
         {
-            //outputLines.AddRange(GetResponse(command)); // Get response for other commands
+            outputLines.AddRange(GetResponse(command)); // Get response for other commands
         }
 
         // 🟢 Ensure both scroll and pulse are triggered
         await JSRuntime.InvokeVoidAsync("scrollToBottom");
         
         isTyping = true;
-        List<string> responseLines = GetResponse(command);
 
         foreach (var line in responseLines)
         {
@@ -239,16 +314,17 @@
     {
         return new List<string>
         {
+            "whoami",
+            "chat",
             "contact",
             "art",
             "music",
             "about",
             "clear",
             "background",
-            "study",
             "info",
             "help",
-            "tetris"
+            "login"
         };
     }
 
@@ -281,16 +357,17 @@
             "help" => new List<string>
             {
                 "Available commands:",
+                "whoami - Show information about you",
                 "contact - Show contact information",
                 "art - view art",
                 "music - redirect to my music",
                 "about - Show information about me",
                 "clear - Clear the terminal",
                 "background - Change the background shader",
-                "study - Open StudyCompanion",
                 "info - Show website information & credits",
                 "help - Show available commands"
             },
+            "whoami" => new List<string> { "You are:" },
             "art" => new List<string> { "[Redirecting to artwork page...]" }, // Shows a message before redirecting
             "about" => new List<string> {"I draw sometimes and write music and write code sometimes. I go to university sometimes. The furry allegations are wholeheartedly false." +
                                          " Special K is the best cereal i guess. Sharks are also cool, I am definitely a shark guy."},
@@ -301,3 +378,4 @@
         };
     }
 }
+
