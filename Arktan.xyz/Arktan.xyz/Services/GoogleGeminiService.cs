@@ -39,7 +39,7 @@ public class GoogleGeminiService
         };
     
         // Output the payload to the console
-        Console.WriteLine(JsonSerializer.Serialize(payload));
+        //Console.WriteLine(JsonSerializer.Serialize(payload));
     
         try
         {
