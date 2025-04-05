@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets/js/shaders.js"
     },
     {
+      "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/js/showPopupBox.js",
+      "PackagePath": "staticwebassets/js/showPopupBox.js"
+    },
+    {
       "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/js/terminal.js",
       "PackagePath": "staticwebassets/js/terminal.js"
     },

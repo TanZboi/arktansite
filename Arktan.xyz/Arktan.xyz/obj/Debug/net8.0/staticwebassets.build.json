@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nkQei46ovyHBpjIEinkLB73loiQendfY1F0WaMlh5+E=",
+  "Hash": "ct1O9hX6ZNzGcrxG0paW5WCanUEtqwTGeKmloSuvZUk=",
   "Source": "Arktan.xyz",
   "BasePath": "/",
   "Mode": "Root",
@@ -8204,6 +8204,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/shaders.js"
+    },
+    {
+      "Identity": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/js/showPopupBox.js",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "js/showPopupBox.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/showPopupBox.js"
     },
     {
       "Identity": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/js/terminal.js",

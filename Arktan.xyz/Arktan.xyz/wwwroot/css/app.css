@@ -295,3 +295,48 @@ canvas#shaderCanvas {
 .toggle-mode:hover {
     text-decoration: none;
 }
+
+.loading-icon {
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Adjusted border size */
+    border-top: 3px solid white; /* Adjusted border size */
+    border-radius: 50%;
+    width: 20px; /* Adjusted width */
+    height: 20px; /* Adjusted height */
+    animation: spin 1s linear infinite;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.popup-box {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    z-index: 2000; /* Ensure it is above other elements */
+    border: 2px solid dimgray; /* Add a border for visibility */
+}
+
+.popup-box.show {
+    opacity: 1;
+}
+
+.close-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}

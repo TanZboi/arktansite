@@ -1,6 +1,11 @@
 @page "/"
 @inject IJSRuntime JSRuntime
 
+<div id="popup-box" class="popup-box">
+    <button class="close-popup" @onclick="ClosePopupBox">X</button>
+    You can ask the AI anything about arktan/natkra. It can also execute commands. Ask it for help if you need it. 🦈
+</div>
+
 <button class="toggle-terminal" @onclick="ToggleTerminal">⌨ Show Terminal</button>
 
 <div class="terminal-container" style="@(showTerminal ? "display:block;" : "display:none;")">
@@ -19,6 +24,7 @@
             {
                 <p>@line</p>
             }
+            <div class="loading-icon" style="@(isTyping ? "display:block;" : "display:none;")"></div>
         </div>
         <div class="input-line">
             <span class="prompt">$ </span>
@@ -90,6 +96,11 @@
         }
     }
     
+    private async Task ClosePopupBox()
+    {
+        await JSRuntime.InvokeVoidAsync("closePopupBox");
+    }
+    
     protected override async Task OnInitializedAsync()
     {
         _geminiService = new GoogleGeminiService(new HttpClient(), "AIzaSyDxjAmSKL6cPkMdZpt39cvbAwytpls3p1w");
@@ -159,13 +170,15 @@
     private async Task ProcessCommand(string command)
     {
         if (isTyping) return;
-    
+
+        isTyping = true;
         lastCommand = "$ " + command;
         outputLines.Add(lastCommand);
         conversationHistory.Add(command);
         StateHasChanged();
+
         List<string> responseLines = new();
-    
+
         if (isChatMode)
         {
             var response = await _geminiService.SendMessageAsync(conversationHistory);
@@ -181,7 +194,7 @@
                 StateHasChanged();
                 return; // Exit early to prevent processing further
             }
-    
+
             if (command == "art")
             {
                 await ShowArt();
@@ -275,26 +288,46 @@
                 outputLines.AddRange(GetResponse(command)); // Get response for other commands
             }
         }
-    
+
         // 🟢 Ensure both scroll and pulse are triggered
         await JSRuntime.InvokeVoidAsync("scrollToBottom");
-    
-        isTyping = true;
-    
+
         foreach (var line in responseLines)
         {
+            isTyping = false;
             typingBuffer = line;
             typingIndex = 0;
-    
-            outputLines.Add("");
-            int currentIndex = outputLines.Count - 1;
-    
-            await TypeOutText(currentIndex);
-    
+
+            // Check for COMMAND keyword and execute the command
+            if (typingBuffer.Contains("COMMAND"))
+            {
+                var commandIndex = typingBuffer.IndexOf("COMMAND");
+                var commandToExecute = typingBuffer.Substring(commandIndex + 7).Trim();
+                typingBuffer = typingBuffer.Substring(0, commandIndex).Trim();
+
+                outputLines.Add("");
+                int currentIndex = outputLines.Count - 1;
+
+                await TypeOutText(currentIndex);
+
+                // Temporarily switch to terminal mode, execute the command, and switch back to chat mode
+                bool wasChatMode = isChatMode;
+                if (isChatMode) ToggleChatMode();
+                await ProcessCommand(commandToExecute);
+                if (wasChatMode) ToggleChatMode();
+            }
+            else
+            {
+                outputLines.Add("");
+                int currentIndex = outputLines.Count - 1;
+
+                await TypeOutText(currentIndex);
+            }
+
             // Keep scrolling to bottom after each typed line
             await JSRuntime.InvokeVoidAsync("scrollToBottom");
         }
-    
+
         isTyping = false;
     }
     
