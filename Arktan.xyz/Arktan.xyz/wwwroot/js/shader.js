@@ -11,9 +11,8 @@ window.opacityLocation = null;
 window.canvas = null;
 
 window.initShader = async function() {
-    console.log("Fetching initial shader...");
-    let shaderData = await window.getRandomShader();
-    console.log("Initializing with shader:", shaderData.name);
+    console.log("Initializing with shader: Rotating Fractal");
+    let shaderData = shaders.find(s => s.name === "Rotating Fractal");
     window.currentShader = shaderData;
 
     window.canvas = document.getElementById("shaderCanvas");
@@ -157,3 +156,15 @@ function render(time) {
     gl.drawArrays(gl.TRIANGLES, 0, 3);
     requestAnimationFrame(render);
 }
+
+// shader.js
+
+window.shakeShark = function() {
+    const sharkEmoji = document.getElementById("shark-emoji");
+    if (sharkEmoji) {
+        sharkEmoji.classList.add("shake");
+        setTimeout(() => {
+            sharkEmoji.classList.remove("shake");
+        }, 500); // Duration of the shake animation
+    }
+};

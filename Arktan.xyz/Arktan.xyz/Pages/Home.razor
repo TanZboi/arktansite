@@ -1,0 +1,53 @@
+@page "/"
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+<h1 id="shark-emoji" style="font-size: 5rem; text-align: center; margin-top: -20px;" @onclick="ShakeShark">🦈</h1> <!-- Big shark emoji -->
+
+<div class="home-container" style="margin-top: -20px;">
+    <div class="shadow-box"></div>
+    <div class="shadow-box"></div>
+    <h1>Welcome to Arktan.xyz</h1>
+    <button class="enter-button" @onclick="NavigateToTerminal">Enter Website</button>
+    <div class="quick-options">
+        <h2>Or, choose these options if you are in a rush:</h2>
+        <button class="info-button" @onclick="NavigateToCommissionInfo">Commission Info</button>
+        <button class="info-button" @onclick="NavigateToContactInfo">Social Media & Contact Information</button>
+    </div>
+    <div class="info-section">
+        <h2>This website is a personal project.</h2>
+        <p>I am still actively working on it so expect issues.</p>
+        <p>I'm a freelance fantasy artist, musician, and computer science student.</p>
+        <!-- Add more information about your art, music, etc. -->
+    </div>
+</div>
+
+@code {
+    private void NavigateToTerminal()
+    {
+        Navigation.NavigateTo("/terminal");
+    }
+
+    private void NavigateToCommissionInfo()
+    {
+        Navigation.NavigateTo("/commission");
+    }
+
+    private void NavigateToContactInfo()
+    {
+        Navigation.NavigateTo("/contact");
+    }
+
+    private async Task ShakeShark()
+    {
+        await JSRuntime.InvokeVoidAsync("shakeShark");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initShader");
+        }
+    }
+}

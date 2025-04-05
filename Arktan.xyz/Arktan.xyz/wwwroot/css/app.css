@@ -340,3 +340,118 @@ canvas#shaderCanvas {
     font-size: 1rem;
     cursor: pointer;
 }
+
+.home-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* app.css */
+
+/* Update button styles to use the same font */
+.enter-button, .info-button {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Other existing styles */
+.enter-button {
+    background-color: darkgray; /* Brighter color */
+    color: white;
+    padding: 20px 40px; /* Bigger size */
+    border: none;
+    border-radius: 10px; /* More rounded corners */
+    cursor: pointer;
+    font-size: 1.5rem; /* Larger font size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform transition */
+}
+
+.enter-button:hover {
+    background-color: dimgray; /* Slightly different hover color */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.info-button {
+    background-color: #444;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.info-button:hover {
+    background-color: #666;
+}
+/* app.css */
+
+/* Animating shadow box */
+@keyframes moveShadow {
+    0% {
+        transform: translate(-10px, -10px);
+    }
+    50% {
+        transform: translate(10px, 10px);
+    }
+    100% {
+        transform: translate(-10px, -10px);
+    }
+}
+
+@keyframes moveShadowReverse {
+    0% {
+        transform: translate(10px, 10px);
+    }
+    50% {
+        transform: translate(-10px, -10px);
+    }
+    100% {
+        transform: translate(10px, 10px);
+    }
+}
+
+.shadow-box {
+    position: absolute;
+    top: -10px; /* Move up */
+    left: -10px; /* Move left */
+    width: 110%; /* Increase width */
+    height: 110%; /* Increase height */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    animation: moveShadow 5s infinite;
+    z-index: -1; /* Ensure it is behind the text */
+}
+
+.shadow-box:nth-child(2) {
+    animation: moveShadowReverse 5s infinite; /* Reverse animation for the second box */
+}
+
+.home-container {
+    position: relative; /* Ensure the shadow box is positioned relative to this container */
+    text-align: center;
+    margin-top: 50px;
+    z-index: 1; /* Ensure the text is above the shadow box */
+}
+
+/* app.css */
+
+@keyframes shake {
+    0% { transform: translate(5px, 5px) rotate(0deg); }
+    10% { transform: translate(-5px, -10px) rotate(-3deg); }
+    20% { transform: translate(-15px, 0px) rotate(3deg); }
+    30% { transform: translate(15px, 10px) rotate(0deg); }
+    40% { transform: translate(5px, -5px) rotate(3deg); }
+    50% { transform: translate(-5px, 10px) rotate(-3deg); }
+    60% { transform: translate(-15px, 5px) rotate(0deg); }
+    70% { transform: translate(15px, 5px) rotate(-3deg); }
+    80% { transform: translate(-5px, -5px) rotate(3deg); }
+    90% { transform: translate(5px, 10px) rotate(0deg); }
+    100% { transform: translate(5px, -10px) rotate(-3deg); }
+}
+
+.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+}
