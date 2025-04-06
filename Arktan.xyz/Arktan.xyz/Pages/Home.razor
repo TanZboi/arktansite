@@ -2,7 +2,7 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 
-<h1 id="shark-emoji" style="font-size: 5rem; text-align: center; margin-top: -20px;" @onclick="ShakeShark">🦈</h1> <!-- Big shark emoji -->
+<h1 id="shark-emoji" style="font-size: 7rem; text-align: center; margin-top: -20px;" @onclick="ShakeShark">🦈</h1> <!-- Big shark emoji -->
 
 <div class="home-container" style="margin-top: -20px;">
     <div class="shadow-box"></div>
@@ -20,6 +20,8 @@
         <p>I'm a freelance fantasy artist, musician, and computer science student.</p>
         <!-- Add more information about your art, music, etc. -->
     </div>
+    <button class="info-button" @onclick="DisableShaders">Switch off shaders if lagging</button>
+    <p id="shader-message" style="display: none; color: red;">Shaders off. Refresh to turn back on.</p>
 </div>
 
 @code {
@@ -41,6 +43,11 @@
     private async Task ShakeShark()
     {
         await JSRuntime.InvokeVoidAsync("shakeShark");
+    }
+
+    private async Task DisableShaders()
+    {
+        await JSRuntime.InvokeVoidAsync("disableShaders");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

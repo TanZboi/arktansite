@@ -49,6 +49,18 @@
       "PackagePath": "staticwebassets/art/art-list.json"
     },
     {
+      "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/art/commissionart/Untitled-1.png",
+      "PackagePath": "staticwebassets/art/commissionart/Untitled-1.png"
+    },
+    {
+      "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/art/commissionart/Untitled-2.png",
+      "PackagePath": "staticwebassets/art/commissionart/Untitled-2.png"
+    },
+    {
+      "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/art/commissionart/Untitled-3.png",
+      "PackagePath": "staticwebassets/art/commissionart/Untitled-3.png"
+    },
+    {
       "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/css/app.css",
       "PackagePath": "staticwebassets/css/app.css"
     },

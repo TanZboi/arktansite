@@ -455,3 +455,108 @@ canvas#shaderCanvas {
     animation: shake 0.5s;
     animation-iteration-count: 1;
 }
+
+/* app.css */
+
+/* app.css */
+
+/* Commission page container */
+.commission-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #1e1e1e !important; /* Dark background */
+    color: #ffffff !important; /* White text */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    top: 2500px;
+}
+
+/* Headings */
+.commission-container h1, .commission-container h2 {
+    color: mediumpurple; /* Bright yellow for headings */
+}
+
+/* Paragraphs */
+.commission-container p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Lists */
+.commission-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Links */
+.commission-container a {
+    color: #1e90ff; /* Bright blue for links */
+    text-decoration: none;
+}
+
+.commission-container a:hover {
+    text-decoration: underline;
+}
+
+/* Commission page container */
+.commission-container img {
+    max-width: 100%; /* Ensure the image takes up half the container's width */
+    height: auto; /* Maintain the aspect ratio */
+    display: inline-block; /* Allow images to be placed next to each other */
+    vertical-align: top; /* Align the top of the images */
+}
+
+/* Tables */
+.commission-container table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.commission-container th, .commission-container td {
+    border: 1px solid #444;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.commission-container th {
+    background-color: #333;
+}
+
+/* Horizontal rule */
+.commission-container hr {
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin: 20px 0;
+}
+
+/* Window controls container */
+.window-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+/* Individual window control */
+.window-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ff5f57; /* Default to red */
+    cursor: pointer;
+}
+
+/* Specific colors for each control */
+.window-control.minimize {
+    background-color: #ffbd2e; /* Yellow */
+}
+
+.window-control.maximize {
+    background-color: #28c940; /* Green */
+}

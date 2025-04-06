@@ -168,3 +168,21 @@ window.shakeShark = function() {
         }, 500); // Duration of the shake animation
     }
 };
+
+window.disableShaders = function() {
+    const canvas = document.getElementById("shaderCanvas");
+    if (canvas) {
+        canvas.style.display = "none";
+    }
+    const messageElement = document.getElementById("shader-message");
+    if (messageElement) {
+        messageElement.style.display = "block";
+    }
+};
+
+window.showShaderMessage = function() {
+    const messageElement = document.getElementById("shader-message");
+    if (messageElement) {
+        messageElement.style.display = "block";
+    }
+};
