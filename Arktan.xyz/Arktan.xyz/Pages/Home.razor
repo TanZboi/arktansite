@@ -2,6 +2,18 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FBDTC0W87X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FBDTC0W87X');
+</script>
+
+
 <h1 id="shark-emoji" style="font-size: 7rem; text-align: center; margin-top: -20px;" @onclick="ShakeShark">🦈</h1> <!-- Big shark emoji -->
 
 <div class="home-container" style="margin-top: -20px;">
