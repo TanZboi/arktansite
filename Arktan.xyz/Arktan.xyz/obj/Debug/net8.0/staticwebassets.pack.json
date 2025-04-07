@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets/art/IMG_0584.webp"
     },
     {
+      "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/art/Screenshot 2025-04-06 at 19.17.07.png",
+      "PackagePath": "staticwebassets/art/Screenshot 2025-04-06 at 19.17.07.png"
+    },
+    {
       "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/art/Untitled_Artwork 3.webp",
       "PackagePath": "staticwebassets/art/Untitled_Artwork 3.webp"
     },
@@ -75,6 +79,10 @@
     {
       "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/css/bootstrap/bootstrap.min.css.map",
       "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/css/contact.css",
+      "PackagePath": "staticwebassets/css/contact.css"
     },
     {
       "Id": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/favicon.png",

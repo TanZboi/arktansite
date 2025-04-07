@@ -1,4 +1,5 @@
 /* app.css */
+@import 'contact.css';
 
 /* General body styling */
 body {
@@ -559,4 +560,28 @@ canvas#shaderCanvas {
 
 .window-control.maximize {
     background-color: #28c940; /* Green */
+}
+
+.contact-image {
+    max-width: 25%; /* Adjust the percentage as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 15px; /* Rounds the corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a slight shadow */
+}
+
+.back-button {
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1rem; /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.back-button:hover {
+    background-color: lawngreen; /* Darker blue on hover */
 }

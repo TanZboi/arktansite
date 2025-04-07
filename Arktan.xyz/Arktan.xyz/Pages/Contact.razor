@@ -1,0 +1,33 @@
+@page "/contact"
+@inject NavigationManager Navigation
+
+<PageTitle>Contact Information</PageTitle>
+
+<img src="art/Screenshot 2025-04-06 at 19.17.07.png" alt="Contact Image" class="contact-image" />
+
+<div class="contact-container">
+    <h1>Contact Information</h1>
+    <p>If you want to contact me about a commission, please message me on discord.</p>
+    
+    <ul>
+        <li>Email: <a href="mailto:bill@arktan.xyz">bill@arktan.xyz</a></li>
+        <li>Discord: Arktanz</li>
+        <li>Bluesky: <a href="https://bsky.app/profile/natkraart.bsky.social" target="_blank">natkraart.bsky.social</a></li>
+        <li>DeviantArt: <a href="https://www.deviantart.com/natkra" target="_blank">natkra</a></li>
+        <li>FA: <a href="https://www.furaffinity.net/user/natkra" target="_blank">natkra</a></li>
+        <li>Reddit: <a href="https://www.reddit.com/user/thatmako" target="_blank">u/thatmako</a></li>
+        <li>YouTube: <a href="https://www.youtube.com/Arktan" target="_blank">Arktan</a></li>
+        <li>SoundCloud: <a href="https://soundcloud.com/arktan" target="_blank">Arktan</a></li>
+        <li>GitHub: <a href="https://github.com/TanZboi" target="_blank">TanZboi</a></li>
+        <li>Website: <a href="https://arktan.xyz" target="_blank">arktan.xyz</a></li>
+    </ul>
+    
+    <button class="back-button" @onclick="NavigateToHome">Back to Home</button>
+</div>
+
+@code {
+    private void NavigateToHome()
+    {
+        Navigation.NavigateTo("/");
+    }
+}

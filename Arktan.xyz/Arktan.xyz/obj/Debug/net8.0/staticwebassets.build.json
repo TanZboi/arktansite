@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xdxA0PtEeCFHjN3/EK+ybFpCplzpJ1fDEwY5yvPjxvw=",
+  "Hash": "mOe0ppEcU2P62q8JZo/10xcOJTUpc10uILoWnvMIBHY=",
   "Source": "Arktan.xyz",
   "BasePath": "/",
   "Mode": "Root",
@@ -8016,6 +8016,25 @@
       "OriginalItemSpec": "wwwroot/art/IMG_0584.webp"
     },
     {
+      "Identity": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/art/Screenshot 2025-04-06 at 19.17.07.png",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "art/Screenshot 2025-04-06 at 19.17.07.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/art/Screenshot 2025-04-06 at 19.17.07.png"
+    },
+    {
       "Identity": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/art/Untitled_Artwork 3.webp",
       "SourceId": "Arktan.xyz",
       "SourceType": "Discovered",
@@ -8109,6 +8128,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Identity": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/css/contact.css",
+      "SourceId": "Arktan.xyz",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/",
+      "BasePath": "/",
+      "RelativePath": "css/contact.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/contact.css"
     },
     {
       "Identity": "/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/wwwroot/favicon.png",
