@@ -2,7 +2,6 @@
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 
-
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FBDTC0W87X"></script>
 <script>
@@ -13,7 +12,6 @@
     gtag('config', 'G-FBDTC0W87X');
 </script>
 
-
 <h1 id="shark-emoji" style="font-size: 7rem; text-align: center; margin-top: -20px;" @onclick="ShakeShark">🦈</h1> <!-- Big shark emoji -->
 
 <div class="home-container" style="margin-top: -20px;">
@@ -23,7 +21,7 @@
     <button class="enter-button" @onclick="NavigateToTerminal">Enter Website</button>
     <div class="quick-options">
         <h2>Or, choose these options if you are in a rush:</h2>
-        <button class="info-button" @onclick="NavigateToCommissionInfo">Commission Info</button>
+        <button class="info-button disabled" disabled>Commission Info (Commissions Closed)</button>
         <button class="info-button" @onclick="NavigateToContactInfo">Social Media & Contact Information</button>
     </div>
     <div class="info-section">
@@ -40,11 +38,6 @@
     private void NavigateToTerminal()
     {
         Navigation.NavigateTo("/terminal");
-    }
-
-    private void NavigateToCommissionInfo()
-    {
-        Navigation.NavigateTo("/commission");
     }
 
     private void NavigateToContactInfo()

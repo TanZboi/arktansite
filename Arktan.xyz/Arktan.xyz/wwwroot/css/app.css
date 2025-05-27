@@ -585,3 +585,10 @@ canvas#shaderCanvas {
 .back-button:hover {
     background-color: lawngreen; /* Darker blue on hover */
 }
+
+.disabled {
+    background-color: #d3d3d3; /* Light gray */
+    color: #808080; /* Dark gray text */
+    cursor: not-allowed; /* Disabled cursor */
+    border: 1px solid #d3d3d3; /* Match background */
+}
