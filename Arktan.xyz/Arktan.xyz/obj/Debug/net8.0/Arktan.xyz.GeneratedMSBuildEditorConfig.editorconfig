@@ -13,47 +13,49 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Arktan.xyz
 build_property.RootNamespace = Arktan.xyz
-build_property.ProjectDir = /Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/
+build_property.ProjectDir = /home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz
+build_property.MSBuildProjectDirectory = /home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/App.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Pages/Art.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Art.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQXJ0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Pages/Commission.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Commission.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29tbWlzc2lvbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Pages/Contact.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Contact.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ29udGFjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Pages/Home.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Pages/Terminal.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Pages/Terminal.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVGVybWluYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/_Imports.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Layout/MainLayout.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xa0uko7fif
 
-[/Users/bill/Documents/Arktan.xyz/arktansite/Arktan.xyz/Arktan.xyz/Layout/YourArtLayout.razor]
+[/home/billt/Documents/website/arktansite/Arktan.xyz/Arktan.xyz/Layout/YourArtLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L1lvdXJBcnRMYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-unljo7qrer
